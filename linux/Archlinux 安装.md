@@ -11,7 +11,7 @@
 
 &emsp;&emsp;磁盘分区采用的是 [parted](https://wiki.archlinux.org/index.php/Parted) 命令和`UEFI`分区方案。如需采用`MBR`方案请查看 [parted](https://wiki.archlinux.org/index.php/Parted) 示例。分区前可以使用`lsblk`查看分区挂在情况。下面以一块新磁盘`sda`为例。
 
-```shell  {.line-numbers}
+```bash
 parted /dev/sda
 mktable  # 磁盘格式填写ESP
 mkpart esp fat32 1MiB 200MiB #建立esp分区
@@ -23,7 +23,7 @@ mkpart primary ext4 20.5G 100% # 建立home分区
 &emsp;&emsp;上面是将`sda`分成4个分区，当然你也可以根据自己的喜好划分。`esp`主要用来存放引导文件；`swap`交换分区，可以看做Windows的虚拟内存，该分区的大小设定可以参考[这篇文章](https://blog.csdn.net/wash168/article/details/78473846);`根分区`存放系统文件；`Home分区`存放用户相关。
 &emsp;&emsp;分区后接下来需要格式化分区和挂载分区。
 
-```shell {.line-numbers}
+```bash
 # 格式化分区
 mkfs.fat -F32 /dev/sda1
 mkswap /dev/sda2
@@ -44,26 +44,26 @@ mount /dev/sda4 /mnt/home # 挂载home分区
 
 编辑 mirrorlist 文件
 
-```shell {.line-numbers}
+```bash
 nano /etc/pacman.d/mirrorlist
 ```
 
 在文件最上方添加
 
-```shell {.line-numbers}
+```bash
 Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 Server = http://mirrors.163.com/archlinux/$repo/os/$arch
 ```
 
 刷新并应用
 
-```shell {.line-numbers}
+```bash
 pacman -Syy
 ```
 
 基本系统安装
 
-```shell {.line-numbers}
+```bash
 pacstrap /mnt base base-devel
 ```
 
@@ -73,13 +73,13 @@ pacstrap /mnt base base-devel
 
 生成 **fstab** 文件
 
-```shell {.line-numbers}
+```bash
 genfstab -U -p /mnt >> /mnt/etc/fstab
 ```
 
 **fstab** 文件比较重要,需要检查 **fstab** 文件是否正确和备份：
 
-```shell {.line-numbers}
+```bash
 # 查看 fstab 文件内容
 cat /mnt/etc/fstab
 #备份fstab
@@ -88,26 +88,26 @@ cp /mnt/etc/fstab /mnt/etc/fstab.bak
 
 ## 切换到新系统Shell环境
 
-```shell {.line-numbers}
+```bash
 arch-chroot /mnt
 ```
 
 ## 本地化
 
-```shell {.line-numbers}
+```bash
 nano /etc/locale.gen
 ```
 
 移除下方 2 个前的 # 保存即可
 
-```shell {.line-numbers}
+```bash
 en_US.UTF-8 UTF-8
 zh_CN.UTF-8 UTF-8
 ```
 
 执行 `locale-gen` 生成并应用，然后创建locale.conf配置文件
 
-```shell {.line-numbers}
+```bash
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 ```
 
@@ -115,7 +115,7 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 
 ## 时区设置
 
-```shell {.line-numbers}
+```bash
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
@@ -123,7 +123,7 @@ ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 设置硬件为 UTC 时间
 
-```shell {.line-numbers}
+```bash
 hwclock --systohc --utc
 ```
 
@@ -131,13 +131,13 @@ hwclock --systohc --utc
 
 假设你想将 **myhostname** 设置为你的主机名称：
 
-```shell {.line-numbers}
+```bash
 echo myhostname > /etc/hostname
 ```
 
 建议同时在 `/etc/hosts` 中设置 `hostname`
 
-```shell {.line-numbers}
+```bash
 #<ip-address> <hostname.domain.org> <hostname>
 127.0.0.1   localhost.localdomain   localhost   myhostname
 ::1         localhost.localdomain   localhost   myhostname
@@ -148,9 +148,10 @@ echo myhostname > /etc/hostname
 设置密码是运行 `passwd 用户名` root庄户可以直接运行 `passwd`命令。
 Linux中不建议直接使用`root`账户，建议添加一个用户。
 
-```shell {.line-numbers}
+```bash
 #添加用户 useradd -m -g "初始组" -G "附加组" -s "登陆shell" "用户"
 useradd -m -g users -s /bin/bash username
 ```
 
 ## 添加引导
+
