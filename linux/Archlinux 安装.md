@@ -1,15 +1,15 @@
 # Arch Linux 安装篇
 
-&emsp;&emsp;用Linux也有两年多了，也尝试过很多发行版。特别喜欢ArchLinux的滚动更新和可定制性。ArchLinux或者是Linux的优点就不在这里多说了，我相信打开这篇教程的同学一定可以从这样的过程中得到很多。但是Arch安装对一些没经验的用户，并不那么友好。所以这次趁换电脑重装一遍，写下这篇教程。
+用Linux也有两年多了，也尝试过很多发行版。特别喜欢ArchLinux的滚动更新和可定制性。ArchLinux或者是Linux的优点就不在这里多说了，我相信打开这篇教程的同学一定可以从这样的过程中得到很多。但是Arch安装对一些没经验的用户，并不那么友好。所以这次趁换电脑重装一遍，写下这篇教程。
 
 ## 准备工作
 
-&emsp;&emsp;准备一个U盘，从[官网](https://www.archlinux.org/download/)下载最新安装镜像后，用[PowerISO](http://www.poweriso.com/)制作好启动U盘。制作步骤，这里不做过多介绍了。启动电脑选择U盘启动，进入界面后直接回车进入。
+准备一个U盘，从[官网](https://www.archlinux.org/download/)下载最新安装镜像后，用[PowerISO](http://www.poweriso.com/)制作好启动U盘。制作步骤，这里不做过多介绍了。启动电脑选择U盘启动，进入界面后直接回车进入。
 > U盘大小建议4G以上，记得备份好U盘数据。制作工具也可以用你熟悉的软件或者直接用`dd`命令。
 
 ## 磁盘分区和挂载
 
-&emsp;&emsp;磁盘分区采用的是 [parted](https://wiki.archlinux.org/index.php/Parted) 命令和`UEFI`分区方案。如需采用`MBR`方案请查看 [parted](https://wiki.archlinux.org/index.php/Parted) 示例。分区前可以使用`lsblk`查看分区挂在情况。下面以一块新磁盘`sda`为例。
+磁盘分区采用的是 [parted](https://wiki.archlinux.org/index.php/Parted) 命令和`UEFI`分区方案。如需采用`MBR`方案请查看 [parted](https://wiki.archlinux.org/index.php/Parted) 示例。分区前可以使用`lsblk`查看分区挂在情况。下面以一块新磁盘`sda`为例。
 
 ```bash
 parted /dev/sda
@@ -20,8 +20,8 @@ mkpart primary ext4 8G 20.5G # 建立根分区
 mkpart primary ext4 20.5G 100% # 建立home分区
 ```
 
-&emsp;&emsp;上面是将`sda`分成4个分区，当然你也可以根据自己的喜好划分。`esp`主要用来存放引导文件；`swap`交换分区，可以看做Windows的虚拟内存，该分区的大小设定可以参考[这篇文章](https://blog.csdn.net/wash168/article/details/78473846);`根分区`存放系统文件；`Home分区`存放用户相关。
-&emsp;&emsp;分区后接下来需要格式化分区和挂载分区。
+上面是将`sda`分成4个分区，当然你也可以根据自己的喜好划分。`esp`主要用来存放引导文件；`swap`交换分区，可以看做Windows的虚拟内存，该分区的大小设定可以参考[这篇文章](https://blog.csdn.net/wash168/article/details/78473846);`根分区`存放系统文件；`Home分区`存放用户相关。
+分区后接下来需要格式化分区和挂载分区。
 
 ```bash
 # 格式化分区
@@ -40,7 +40,7 @@ mount /dev/sda4 /mnt/home # 挂载home分区
 
 ## 安装基本系统
 
-&emsp;&emsp;**Arch** 并不支持离线安装，所以安装系统前，需要连接网络。如果使用有线网并且路由器支持dhcp，插上线可以执行命令`dhcpcd`;如果是无线连接，输入命令 `wifi-menu` 选择你的 WiFi,输入密码回车稍等就连接啦。然后测试一下：`ping -c 3 baidu.com` 看看通了没。接下来需要配置下源：
+**ArchLinux** 并不支持离线安装，所以安装系统前，需要连接网络。如果使用有线网并且路由器支持dhcp，插上线可以执行命令`dhcpcd`;如果是无线连接，输入命令 `wifi-menu` 选择你的 WiFi,输入密码回车稍等就连接啦。然后测试一下：`ping -c 3 baidu.com` 看看通了没。接下来需要配置下源：
 
 编辑 mirrorlist 文件
 
@@ -86,10 +86,10 @@ cat /mnt/etc/fstab
 cp /mnt/etc/fstab /mnt/etc/fstab.bak
 ```
 
-## 切换到新系统Shell环境
+## 切换到新系统
 
 ```bash
-arch-chroot /mnt
+arch-chroot /mnt /bin/bash
 ```
 
 ## 本地化
@@ -145,7 +145,7 @@ echo myhostname > /etc/hostname
 
 ## 添加用户和设置密码
 
-设置密码是运行 `passwd 用户名` root庄户可以直接运行 `passwd`命令。
+设置密码是运行 `passwd 用户名` root用户可以直接运行 `passwd`命令。
 Linux中不建议直接使用`root`账户，建议添加一个用户。
 
 ```bash
@@ -153,5 +153,60 @@ Linux中不建议直接使用`root`账户，建议添加一个用户。
 useradd -m -g users -s /bin/bash username
 ```
 
+给刚才的用户添加`sudo`权限：
+
+```bash
+nano /etc/sudoers
+```
+
+然后在 `root ALL=(ALL) ALL` 下面添加 `用户名 ALL=(ALL) ALL`
+
 ## 添加引导
 
+引导的方式有很多
+
+* 使用 Grub
+
+```bash
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=arch_grub --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+* 使用 Systemd-boot
+
+```bash
+#安装
+bootctl --path=/boot/EFI install
+bootctl --path=/boot/EFI update
+#配置 loader.conf
+nano /boot/loader/loader.conf
+timeout 30            #本行是开机时，系统选单的等待时间；
+default arch        #本行是指定运行哪个启动配置文件。
+#配置arch.conf
+cp /usr/share/systemd/bootctl/arch.conf /boot/loader/entries/arch.conf
+nano /boot/loader/entries/arch.conf
+#获取 PARTUUID
+blkid -s PARTUUID -o value /dev/sda6
+#具体内容
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options root=PARTUUID=09a7b897-1a0d-4518-b2d8-19da8e89068d rw
+```
+
+* 直接使用UEFI
+
+```bash
+uefi
+```
+
+## 重启
+
+```bash
+exit # 退回安装环境
+umount -R /mnt
+reboot
+```
+
+使用新用户登录，登录成功,恭喜你，你已经成功安装`ArchLinux`!
