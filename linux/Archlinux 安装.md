@@ -1,10 +1,10 @@
 # Arch Linux 安装篇
 
-用Linux也有两年多了，也尝试过很多发行版。特别喜欢ArchLinux的滚动更新和可定制性。ArchLinux或者是Linux的优点就不在这里多说了，我相信打开这篇教程的同学一定可以从这样的过程中得到很多。但是Arch安装对一些没经验的用户，并不那么友好。所以这次趁换电脑重装一遍，写下这篇教程。
+用Linux也有两年多了，也尝试过很多发行版。特别喜欢 `ArchLinux` 的滚动更新和可定制性。`ArchLinux` 或者是 `Linux` 的优点就不在这里多说了，我相信打开这篇教程的同学一定可以从这样的过程中得到很多。但是 `ArchLinux` 安装对一些没经验的用户，并不那么友好。所以这次趁换电脑重装一遍，写下这篇教程。
 
 ## 准备工作
 
-准备一个U盘，从[官网](https://www.archlinux.org/download/)下载最新安装镜像后，用[PowerISO](http://www.poweriso.com/)制作好启动U盘。制作步骤，这里不做过多介绍了。启动电脑选择U盘启动，进入界面后直接回车进入。
+准备一个U盘，从 [官网](https://www.archlinux.org/download/) 下载最新安装镜像后，用 [PowerISO](http://www.poweriso.com/) 制作好启动U盘。制作步骤，这里不做过多介绍了。启动电脑选择U盘启动，进入界面后直接回车进入。
 > U盘大小建议4G以上，记得备份好U盘数据。制作工具也可以用你熟悉的软件或者直接用`dd`命令。
 
 ## 磁盘分区和挂载
@@ -187,19 +187,22 @@ default arch        #本行是指定运行哪个启动配置文件。
 cp /usr/share/systemd/bootctl/arch.conf /boot/loader/entries/arch.conf
 nano /boot/loader/entries/arch.conf
 #获取 PARTUUID
-blkid -s PARTUUID -o value /dev/sda6
+blkid -s PARTUUID -o value /dev/sdXY
 #具体内容
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
-options root=PARTUUID=09a7b897-1a0d-4518-b2d8-19da8e89068d rw
+options root=PARTUUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw
 ```
 
 * 直接使用UEFI
+需要主板支持 `uefi`，具体可以参考 [EFISTUB](https://wiki.archlinux.org/index.php/EFISTUB)
 
 ```bash
-uefi
+efibootmgr --disk /dev/sdX --part Y --create --label "Arch Linux" --loader /vmlinuz-linux --unicode 'root=PARTUUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw initrd=\initramfs-linux.img' --verbose
 ```
+
+> 使用 `Systemd-boot` 或者 `直接UEFI` 需要注意 `/dev/sdX`和`Y`为ESP所在的驱动器和分区号。`PARTUUID` 可以使用 `blkid`命令查看。
 
 ## 重启
 
@@ -209,4 +212,11 @@ umount -R /mnt
 reboot
 ```
 
-使用新用户登录，登录成功,恭喜你，你已经成功安装`ArchLinux`!
+移除U盘，等候系统重启。使用新用户登录，登录成功，恭喜你，你已经成功安装`ArchLinux`！
+
+## 配置
+
+目前只是安装了基本系统，但是还没有进行基本配置和安装图形界面，所以接下来我们要进行一些必须的配置和图形界面的安装。具体将会在下一篇配置篇中介绍。
+
+---
+如本教程内容有错误，欢迎在评论留言中指正。安装过程中遇到问题，建议多查看 [Arch Wiki](https://wiki.archlinux.org/)，实在解决不了也可以评论留言，我会尽力回复解决。

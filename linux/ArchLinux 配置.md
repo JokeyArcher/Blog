@@ -66,13 +66,118 @@ lspci | grep VGA
 安装：
 
 ```bash
-sudo pacman -S 驱动包
+yay -S 驱动包
 ```
+
+## 安装音频驱动
+
+```bash
+yay -S alsa-utils
+```
+
+> 双显卡：请拔掉显卡提升性能。。。没折腾过自己折腾吧。
 
 ## 安装X窗口系统
 
 ```bash
-sudo pacman -S xorg-server xorg-xprop xorg-xrandr xorg-xrdb
+yay -S xorg-server xorg-xprop xorg-xrandr xorg-xrdb
 ```
 
-## 字体安装
+## 中文配置和中文输入法
+
+* 安装中文字体，更多配置请查看 [Fonts](https://wiki.archlinux.org/index.php/Fonts)
+
+```bash
+yay -S ttf-dejavu wqy-zenhei
+```
+
+* 中文输入法
+
+```bash
+yay -S fcitx-im fcitx-sogoupinyin
+```
+
+全部安装即可。配置工具：如果桌面环境准备安装 `KDE` 则安装 `kcm-fcitx`, 基于 `GTK+3` 的安装 `fcitx-configtool`。
+
+在 `~/.xinitrc` 、 `~/.xprofile` 和 `~/.bashrc 或 ~/.zshrc` 中加入：
+
+```bash
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_US
+export LC_CTYPE=en_US.UTF-8
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+```
+
+## 桌面环境安装
+
+Linux下有很多著名的桌面环境如Xfce、Gnome、KDE(Plasma)、Unity、i3wm等等，它们的外观、操作、设计理念等各方面都有所不同， 在它们之间的比较与选择网上有很多的资料可以去查。
+如果实在不知道选哪个，都装上体验下也是可以的。跟多信息可以查看 [Desktop environment](https://wiki.archlinux.org/index.php/Desktop_environment#List_of_desktop_environments) 了解。
+
+* Xfce4 桌面
+
+```bash
+yay -S xfce4 xfce4-goodies sddm
+```
+
+* Gnome 桌面
+
+```bash
+yay -S gnome gdm gnome-extra
+```
+
+* KDE 桌面
+
+```bash
+yay -S plasma kde-applications sddm
+```
+
+> xfce4-goodies、gnome-extra、kde-applications 是扩展包，可以不用安装。
+
+开机启动登陆管理器(gdm或者sddm)：
+
+```bash
+sudo systemctl enable gdm/sddm
+```
+
+## 网络管理器
+
+```bash
+yay -S networkmanager
+sudo systemctl enable NetworkManager
+```
+
+小托盘工具等其他问题可以参考 [NetworkManager](https://wiki.archlinux.org/index.php/NetworkManager)。
+
+## ZSH 和 Oh My Zsh
+
+安装 `zsh`：
+
+```bash
+yay -S zsh
+```
+
+安装 `Oh My Zsh`：
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+关于`Oh My Zsh`更多配置可以查看 [官方文档](https://github.com/robbyrussell/oh-my-zsh) 。
+
+## 常用软件
+
+```bash
+yay -S tar git gvfs gvfs-mtp htop ranger firefox firefox-i18n-zh-cn chromium
+```
+
+更多可以查看 `Arch Wiki` 或者这个 [仓库](https://github.com/alim0x/Awesome-Linux-Software-zh_CN)。
+
+## 重启
+
+重新启动后，如果你看到桌面管理器的界面，选择你需要的桌面环境并输入用户名与密码登陆后，正常进入桌面，那么恭喜你，你已经完成了桌面环境的安装！
+
+---
+到这里， `ArchLinux` 的安装与基本配置教程已经结束了，如果有疏漏与不正确的地方，欢迎在评论留言中指正。之后会写一篇关于 `i3wm` 桌面的安装和配置。
