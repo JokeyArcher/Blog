@@ -14,6 +14,8 @@ git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:Kycer/Blog.git pages
+git push -f git@github.com:Kycer/kycer.github.io.git pages
 
 cd -
+
+rm -rf public
