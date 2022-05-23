@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>ArchLinux安装 - Kycer&#39;s Blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="ArchLinux安装" />
+<meta property="og:description" content="用Linux也有两年多了，也尝试过很多发行版。特别喜欢 ArchLinux 的滚动更新和可定制性。ArchLinux 或者是 Linux 的优点就不在这里多说了，我相信打开这" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/linux/archlinux%E5%AE%89%E8%A3%85/" /><meta property="article:section" content="linux" />
+<meta property="article:published_time" content="2022-05-23T10:48:13+08:00" />
+<meta property="article:modified_time" content="2022-05-23T10:48:13+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ArchLinux安装"/>
+<meta name="twitter:description" content="用Linux也有两年多了，也尝试过很多发行版。特别喜欢 ArchLinux 的滚动更新和可定制性。ArchLinux 或者是 Linux 的优点就不在这里多说了，我相信打开这"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/linux/archlinux%E5%AE%89%E8%A3%85/" /><link rel="next" href="http://example.org/linux/archlinux%E9%85%8D%E7%BD%AE/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "ArchLinux安装",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/linux\/archlinux%E5%AE%89%E8%A3%85\/"
+        },"genre": "linux","keywords": "linux","wordcount":  1779 ,
+        "url": "http:\/\/example.org\/linux\/archlinux%E5%AE%89%E8%A3%85\/","datePublished": "2022-05-23T10:48:13+08:00","dateModified": "2022-05-23T10:48:13+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kycer"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kycer&#39;s Blog">Kycer&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/linux/"> Linux </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kycer&#39;s Blog">Kycer&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/linux/" title="">Linux</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">ArchLinux安装</h1><div class="content" id="content"><p>用Linux也有两年多了，也尝试过很多发行版。特别喜欢 <code>ArchLinux</code> 的滚动更新和可定制性。<code>ArchLinux</code> 或者是 <code>Linux</code> 的优点就不在这里多说了，我相信打开这篇教程的同学一定可以从这样的过程中得到很多。但是 <code>ArchLinux</code> 安装对一些没经验的用户，并不那么友好。所以这次趁换电脑重装一遍，写下这篇教程。</p>
+<h2 id="准备工作">准备工作</h2>
+<p>准备一个U盘，从 <a href="https://www.archlinux.org/download/" target="_blank" rel="noopener noreffer">官网</a> 下载最新安装镜像后，用 <a href="http://www.poweriso.com/" target="_blank" rel="noopener noreffer">PowerISO</a> 制作好启动U盘。制作步骤，这里不做过多介绍了。启动电脑选择U盘启动，进入界面后直接回车进入。</p>
+<blockquote>
+<p>U盘大小建议4G以上，记得备份好U盘数据。制作工具也可以用你熟悉的软件或者直接用<code>dd</code>命令。</p>
+</blockquote>
+<h2 id="磁盘分区和挂载">磁盘分区和挂载</h2>
+<p>磁盘分区采用的是 <a href="https://wiki.archlinux.org/index.php/Parted" target="_blank" rel="noopener noreffer">parted</a> 命令和<code>UEFI</code>分区方案。如需采用<code>MBR</code>方案请查看 <a href="https://wiki.archlinux.org/index.php/Parted" target="_blank" rel="noopener noreffer">parted</a> 示例。分区前可以使用<code>lsblk</code>查看分区挂在情况。下面以一块新磁盘<code>sda</code>为例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">parted /dev/sda
+</span></span><span class="line"><span class="cl">mktable  <span class="c1"># 磁盘格式填写ESP</span>
+</span></span><span class="line"><span class="cl">mkpart esp fat32 1MiB 200MiB <span class="c1">#建立esp分区</span>
+</span></span><span class="line"><span class="cl">mkpart primary linux-swap 200M  8G <span class="c1"># 建立swap分区</span>
+</span></span><span class="line"><span class="cl">mkpart primary ext4 8G 20.5G <span class="c1"># 建立根分区</span>
+</span></span><span class="line"><span class="cl">mkpart primary ext4 20.5G 100% <span class="c1"># 建立home分区</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面是将<code>sda</code>分成4个分区，当然你也可以根据自己的喜好划分。<code>esp</code>主要用来存放引导文件；<code>swap</code>交换分区，可以看做Windows的虚拟内存，该分区的大小设定可以参考<a href="https://blog.csdn.net/wash168/article/details/78473846" target="_blank" rel="noopener noreffer">这篇文章</a>;<code>根分区</code>存放系统文件；<code>Home分区</code>存放用户相关。
+分区后接下来需要格式化分区和挂载分区。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 格式化分区</span>
+</span></span><span class="line"><span class="cl">mkfs.fat -F32 /dev/sda1
+</span></span><span class="line"><span class="cl">mkswap /dev/sda2
+</span></span><span class="line"><span class="cl">mkfs.ext4 /dev/sda3
+</span></span><span class="line"><span class="cl">mkfs.ext4 /dev/sda4
+</span></span><span class="line"><span class="cl"><span class="c1"># 挂载/启用分区</span>
+</span></span><span class="line"><span class="cl">swapon /dev/sda2
+</span></span><span class="line"><span class="cl">mount /dev/sda3 /mnt
+</span></span><span class="line"><span class="cl">mkdir -p /mnt/boot/EFI <span class="c1"># 建立EFI文件夹</span>
+</span></span><span class="line"><span class="cl">mount /dev/sda1 /mnt/boot/EFI <span class="c1"># 挂载EFI分区</span>
+</span></span><span class="line"><span class="cl">mkdir /mnt/home <span class="c1"># 建立home文件夹</span>
+</span></span><span class="line"><span class="cl">mount /dev/sda4 /mnt/home <span class="c1"># 挂载home分区</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="安装基本系统">安装基本系统</h2>
+<p><strong>ArchLinux</strong> 并不支持离线安装，所以安装系统前，需要连接网络。如果使用有线网并且路由器支持dhcp，插上线可以执行命令<code>dhcpcd</code>;如果是无线连接，输入命令 <code>wifi-menu</code> 选择你的 WiFi,输入密码回车稍等就连接啦。然后测试一下：<code>ping -c 3 baidu.com</code> 看看通了没。接下来需要配置下源：</p>
+<p>编辑 mirrorlist 文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nano /etc/pacman.d/mirrorlist
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在文件最上方添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">Server</span> <span class="o">=</span> http://mirrors.ustc.edu.cn/archlinux/<span class="nv">$repo</span>/os/<span class="nv">$arch</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Server</span> <span class="o">=</span> http://mirrors.163.com/archlinux/<span class="nv">$repo</span>/os/<span class="nv">$arch</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>刷新并应用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -Syy
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>基本系统安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacstrap /mnt base base-devel
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>期间会进行网络下载，你可以抽根烟或喝咖啡冷静冷静&hellip;</p>
+</blockquote>
+<h2 id="配置系统">配置系统</h2>
+<p>生成 <strong>fstab</strong> 文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>fstab</strong> 文件比较重要,需要检查 <strong>fstab</strong> 文件是否正确和备份：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看 fstab 文件内容</span>
+</span></span><span class="line"><span class="cl">cat /mnt/etc/fstab
+</span></span><span class="line"><span class="cl"><span class="c1">#备份fstab</span>
+</span></span><span class="line"><span class="cl">cp /mnt/etc/fstab /mnt/etc/fstab.bak
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="切换到新系统">切换到新系统</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">arch-chroot /mnt /bin/bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="本地化">本地化</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nano /etc/locale.gen
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>移除下方 2 个前的 # 保存即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">en_US.UTF-8 UTF-8
+</span></span><span class="line"><span class="cl">zh_CN.UTF-8 UTF-8
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行 <code>locale-gen</code> 生成并应用，然后创建locale.conf配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>此处不建议直接将locale设置成中文: zh_CN.UTF-8，设置为 en_US.UTF-8，系统的 Log 会以英文显示，这样更容易判断问题和处理。</p>
+</blockquote>
+<h2 id="时区设置">时区设置</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>此处在新的安装镜像中，会提示 localtime 已经存在，可以先删除<code>rm /etc/localtime</code>，然后在执行该条命令。</p>
+</blockquote>
+<p>设置硬件为 UTC 时间</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hwclock --systohc --utc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="设置主机名">设置主机名</h2>
+<p>假设你想将 <strong>myhostname</strong> 设置为你的主机名称：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> myhostname &gt; /etc/hostname
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>建议同时在 <code>/etc/hosts</code> 中设置 <code>hostname</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#&lt;ip-address&gt; &lt;hostname.domain.org&gt; &lt;hostname&gt;</span>
+</span></span><span class="line"><span class="cl">127.0.0.1   localhost.localdomain   localhost   myhostname
+</span></span><span class="line"><span class="cl">::1         localhost.localdomain   localhost   myhostname
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="添加用户和设置密码">添加用户和设置密码</h2>
+<p>设置密码是运行 <code>passwd 用户名</code> root用户可以直接运行 <code>passwd</code>命令。
+Linux中不建议直接使用<code>root</code>账户，建议添加一个用户。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#添加用户 useradd -m -g &#34;初始组&#34; -G &#34;附加组&#34; -s &#34;登陆shell&#34; &#34;用户&#34;</span>
+</span></span><span class="line"><span class="cl">useradd -m -g users -s /bin/bash username
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>给刚才的用户添加<code>sudo</code>权限：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nano /etc/sudoers
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后在 <code>root ALL=(ALL) ALL</code> 下面添加 <code>用户名 ALL=(ALL) ALL</code></p>
+<h2 id="添加引导">添加引导</h2>
+<p>引导的方式有很多</p>
+<ul>
+<li>使用 Grub</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -S grub efibootmgr
+</span></span><span class="line"><span class="cl">grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>/boot/EFI --bootloader-id<span class="o">=</span>arch_grub --recheck
+</span></span><span class="line"><span class="cl">grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>使用 Systemd-boot</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#安装</span>
+</span></span><span class="line"><span class="cl">bootctl --path<span class="o">=</span>/boot/EFI install
+</span></span><span class="line"><span class="cl">bootctl --path<span class="o">=</span>/boot/EFI update
+</span></span><span class="line"><span class="cl"><span class="c1">#配置 loader.conf</span>
+</span></span><span class="line"><span class="cl">nano /boot/loader/loader.conf
+</span></span><span class="line"><span class="cl">timeout <span class="m">30</span>            <span class="c1">#本行是开机时，系统选单的等待时间；</span>
+</span></span><span class="line"><span class="cl">default arch        <span class="c1">#本行是指定运行哪个启动配置文件。</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#配置arch.conf</span>
+</span></span><span class="line"><span class="cl">cp /usr/share/systemd/bootctl/arch.conf /boot/loader/entries/arch.conf
+</span></span><span class="line"><span class="cl">nano /boot/loader/entries/arch.conf
+</span></span><span class="line"><span class="cl"><span class="c1">#获取 PARTUUID</span>
+</span></span><span class="line"><span class="cl">blkid -s PARTUUID -o value /dev/sdXY
+</span></span><span class="line"><span class="cl"><span class="c1">#具体内容</span>
+</span></span><span class="line"><span class="cl">title Arch Linux
+</span></span><span class="line"><span class="cl">linux /vmlinuz-linux
+</span></span><span class="line"><span class="cl">initrd /initramfs-linux.img
+</span></span><span class="line"><span class="cl">options <span class="nv">root</span><span class="o">=</span><span class="nv">PARTUUID</span><span class="o">=</span>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>直接使用UEFI
+需要主板支持 <code>uefi</code>，具体可以参考 <a href="https://wiki.archlinux.org/index.php/EFISTUB" target="_blank" rel="noopener noreffer">EFISTUB</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">efibootmgr --disk /dev/sdX --part Y --create --label <span class="s2">&#34;Arch Linux&#34;</span> --loader /vmlinuz-linux --unicode <span class="s1">&#39;root=PARTUUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw initrd=\initramfs-linux.img&#39;</span> --verbose
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>使用 <code>Systemd-boot</code> 或者 <code>直接UEFI</code> 需要注意 <code>/dev/sdX</code>和<code>Y</code>为ESP所在的驱动器和分区号。<code>PARTUUID</code> 可以使用 <code>blkid</code>命令查看。</p>
+</blockquote>
+<h2 id="重启">重启</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">exit</span> <span class="c1"># 退回安装环境</span>
+</span></span><span class="line"><span class="cl">umount -R /mnt
+</span></span><span class="line"><span class="cl">reboot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>移除U盘，等候系统重启。使用新用户登录，登录成功，恭喜你，你已经成功安装<code>ArchLinux</code>！</p>
+<h2 id="配置">配置</h2>
+<p>目前只是安装了基本系统，但是还没有进行基本配置和安装图形界面，所以接下来我们要进行一些必须的配置和图形界面的安装。具体将会在下一篇配置篇中介绍。</p>
+<hr>
+<p>如本教程内容有错误，欢迎在评论留言中指正。安装过程中遇到问题，建议多查看 <a href="https://wiki.archlinux.org/" target="_blank" rel="noopener noreffer">Arch Wiki</a>，实在解决不了也可以评论留言，我会尽力回复解决。</p>
+</div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.98.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kycer</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

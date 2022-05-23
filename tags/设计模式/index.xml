@@ -1,0 +1,79 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>设计模式 - Tag - Kycer&#39;s Blog</title>
+        <link>http://example.org/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+        <description>设计模式 - Tag - Kycer&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 23 May 2022 11:01:37 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="self" type="application/rss+xml" /><item>
+    <title>原型模式</title>
+    <link>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E6%80%A7%E6%A8%A1%E5%BC%8F/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Mon, 23 May 2022 11:01:37 &#43;0800</pubDate>
+    <author>Kycer</author>
+    <guid>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E6%80%A7%E6%A8%A1%E5%BC%8F/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[简介 了解原型模式前，我们先来了解下Java提供两种克隆方式： 浅克隆：被克隆对象的所有变量都含有与原来的对象相同的值，而它所有的对其他对象的引]]></description>
+</item>
+<item>
+    <title>建造者模式</title>
+    <link>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E6%80%A7%E6%A8%A1%E5%BC%8F/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Mon, 23 May 2022 11:01:18 &#43;0800</pubDate>
+    <author>Kycer</author>
+    <guid>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E6%80%A7%E6%A8%A1%E5%BC%8F/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[简介 在软件开发中，存在大量复杂对象，它们拥有一系列成员属性，这些成员属性中有些是引用类型的成员对象。而且在这些复杂对象中，还可能存在一些限制]]></description>
+</item>
+<item>
+    <title>工厂模式</title>
+    <link>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E6%80%A7%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Mon, 23 May 2022 11:01:00 &#43;0800</pubDate>
+    <author>Kycer</author>
+    <guid>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E6%80%A7%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[简介 工厂模式（Factory Pattern）专门负责将大量有共同接口的类实例化。工厂模式可以动态决定将哪一个类实例化，不必事先知道每次要实例]]></description>
+</item>
+<item>
+    <title>单例模式</title>
+    <link>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E6%80%A7%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Mon, 23 May 2022 11:00:37 &#43;0800</pubDate>
+    <author>Kycer</author>
+    <guid>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E6%80%A7%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[简介 单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式]]></description>
+</item>
+<item>
+    <title>抽象工厂模式</title>
+    <link>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E6%80%A7%E6%A8%A1%E5%BC%8F/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Mon, 23 May 2022 11:00:16 &#43;0800</pubDate>
+    <author>Kycer</author>
+    <guid>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E9%80%A0%E6%80%A7%E6%A8%A1%E5%BC%8F/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[简介 在了解抽象工厂模式之前，我们必须先了解一个概念产品族。所谓的产品族：是指位于不同产品等级结构中，功能相关联的产品组成的家族。 举个例子：在]]></description>
+</item>
+<item>
+    <title>责任链模式</title>
+    <link>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Mon, 23 May 2022 10:59:36 &#43;0800</pubDate>
+    <author>Kycer</author>
+    <guid>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[简介 责任链模式（Chain of Responsibility Pattern）使多个对象都有机会处理请求，从而避免了请求的发送者和接收者之间的耦合关系。将这些对象连成一条链]]></description>
+</item>
+<item>
+    <title>模板方法模式</title>
+    <link>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Mon, 23 May 2022 10:59:22 &#43;0800</pubDate>
+    <author>Kycer</author>
+    <guid>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[简介 模板方法模式（Template Method Pattern）定义一个操作中算法的框架，而将一些步骤延迟到子类中。模板方法模式使得子类可以不改变一个算]]></description>
+</item>
+<item>
+    <title>观察者模式</title>
+    <link>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Mon, 23 May 2022 10:59:04 &#43;0800</pubDate>
+    <author>Kycer</author>
+    <guid>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[简介 观察者模式（Observer Pattern）属于行为型模式的一种，它定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。]]></description>
+</item>
+<item>
+    <title>策略模式</title>
+    <link>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Mon, 23 May 2022 10:58:36 &#43;0800</pubDate>
+    <author>Kycer</author>
+    <guid>http://example.org/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[简介 策略模式（Strategy Pattern）属于对象的行为模式。其用意是针对一组算法，将每一个算法封装到具有共同接口的独立的类中，从而使得]]></description>
+</item>
+</channel>
+</rss>

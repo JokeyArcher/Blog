@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>linux - Tag - Kycer&#39;s Blog</title>
+        <link>http://example.org/tags/linux/</link>
+        <description>linux - Tag - Kycer&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 23 May 2022 10:48:36 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>ArchLinux基本配置</title>
+    <link>http://example.org/linux/archlinux%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Mon, 23 May 2022 10:48:36 &#43;0800</pubDate>
+    <author>Kycer</author>
+    <guid>http://example.org/linux/archlinux%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[网络配置 有线连接： 开机启动启动dhcp服务 1 2 sudo systemctl start dhcpcd sudo systemctl enable dhcpcd 无线连接： 1 sudo pacman -S iw wpa_supplicant dialog 添加 Arch Linux CN 源 这里选择的是ustc的软件源，编辑 /etc/pacman.conf 文件末]]></description>
+</item>
+<item>
+    <title>ArchLinux安装</title>
+    <link>http://example.org/linux/archlinux%E5%AE%89%E8%A3%85/</link>
+    <pubDate>Mon, 23 May 2022 10:48:13 &#43;0800</pubDate>
+    <author>Kycer</author>
+    <guid>http://example.org/linux/archlinux%E5%AE%89%E8%A3%85/</guid>
+    <description><![CDATA[用Linux也有两年多了，也尝试过很多发行版。特别喜欢 ArchLinux 的滚动更新和可定制性。ArchLinux 或者是 Linux 的优点就不在这里多说了，我相信打开这]]></description>
+</item>
+</channel>
+</rss>
